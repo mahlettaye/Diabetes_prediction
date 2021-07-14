@@ -1,8 +1,8 @@
-import app1
+# import app1
 import app2
 import streamlit as st
 PAGES = {
-    "Data Overview": app1,
+    # "Data Overview": app1,
     "Readmission Prediction": app2
 }
 st.sidebar.title('Navigation')

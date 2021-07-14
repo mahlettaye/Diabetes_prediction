@@ -13,9 +13,9 @@ def app ():
         X = scaler.transform(df)
         features = pd.DataFrame(X, columns = feat_cols)
         if (model.predict(features)==0):
-            return "The patient is admitted "
-        else: return "This patient is not admited "
-
+            return "The patient will be re-admitted "
+        else: return "The patient will not be re-admited "
+        
     st.title('Readmission recommender App')
     st.write('Interactive web app with streamlit')
 
@@ -105,7 +105,7 @@ def app ():
 
     if (st.button('Find Patient Status')):
         feat_cols = ['discharge_disposition_id', 'time_in_hospital', 'num_medications', 'number_outpatient', 'number_emergency', 'number_inpatient', 'number_diagnoses', 'change', 'diabetesMed']
-        sc, model = load('model/scaler.joblib', 'model/model.joblib')
+        sc, model = load('models/scaler.pkl', 'models/model.pkl')
         result = inference(row, sc, model, feat_cols)
         st.write(result)
         
