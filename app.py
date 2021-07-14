@@ -1,5 +1,5 @@
 # import app1
-import model_result
+from model_result import model_result
 import streamlit as st
 PAGES = {
     # "Data Overview": app1,
