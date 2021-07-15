@@ -1,9 +1,9 @@
-import app1
-import app2
+# import app1
+import model_result
 import streamlit as st
 PAGES = {
-    "Data Overview": app1,
-    "Readmission Prediction": app2
+    # "Data Overview": app1,
+    "Readmission Prediction": model_result
 }
 st.sidebar.title('Navigation')
 st.title('Welcome to Streamlit demo')
