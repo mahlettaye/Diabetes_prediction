@@ -1,0 +1,21 @@
+name: Diabetes-Prediction-Model-Pipeline
+on: 
+  push:
+    branches:
+    - main
+jobs:
+  run:
+    runs-on: ubuntu-latest 
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env: 
+        repo_token: ${{ secrets.ACCESS_TOKEN }}
+      run: | 
+        pip install -r requirements.txt
+        python model_result.py
+        
+    - name: run-tests
+      run: |
+        python -m unittest tests.test_script
